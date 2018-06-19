@@ -35,8 +35,10 @@
         <div class="site-middle container">
             <!--窗口提示-->
             <div id="message">
-                <div class="alert alert-warning alert-dismissible fade in hidden-xs" role="alert">
-                    记住本站: <code>{{domain}}</code>完全OJBK
+                <div class="alert alert-warning alert-dismissible fade in {#hidden-xs#}" role="alert">
+                    记住本站: <code>{{domain}}</code>完全OJBK;
+                    <p>tips：</p><p>1. 如果不会使用，直接点击下方链接，再点击 <span class="glyphicon glyphicon-arrow-right" id="url_submit_icon" aria-hidden="true"></span>试试</p>
+                          <p>2. 如果不能解析，对比输入的链接形式是否和下方示例链接格式相同？</p>
                 </div>
             </div>
             <!--窗口提示-->
@@ -99,6 +101,16 @@
                                 <div class="list-unstyled list-group up-list">
                                     恋恋影视域名较多，只认<code>{{mm2}}</code>域名
                                     <a class="list-group-item get-link" href="#{{mm2}}/m286">{{mm2}}/m286</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="text-center">
+                                <a class="left-title" href="javascript:void(0);">微博批量解析</a>
+                            </th>
+                            <td class="bs-callout bs-callout-info">
+                                <div class="list-unstyled list-group up-list">
+                                    <a class="list-group-item get-link" href="#@美少女写真馆">@美少女写真馆</a>
                                 </div>
                             </td>
                         </tr>
@@ -206,7 +218,7 @@
                                 }
                                 video_html += "<div class=\"panel-heading\"><h3 class=\"panel-title\">视频列表：</h3></div><ul class=\"list-group\">";
                                 $.each(result.video, function(i) {
-                                    video_html += "<li class=\"list-group-item\"><p class=\"input-group\"><input type=\"text\" name=\"search\" id=\"video" + i + "\" class=\"form-control get-text\" value=\"" + result.video[i].url + "\"><span class=\"input-group-btn\"><a href=\"javascript:void(0);\" class=\"btn btn-info btnCopy\" data-clipboard-action=\"copy\" data-clipboard-target=\"#video" + i + "\" ><span class=\"glyphicon glyphicon-duplicate\"></span></a><a href=\"" + result.video[i].url + "\" class=\"btn btn-primary get-dowmload\" download=\"title-time.mp4\" role=\"button\" title=\"下载\" ><span class=\"glyphicon glyphicon-save\"></span></a><a href=\"" + result.video[i].url + "\" class=\"btn btn-success\" role=\"button\" title=\"播放\"  data-toggle=\"lightbox\" data-title=\"\" data-type=\"video\" data-width=\"1024\"><span class=\"glyphicon glyphicon-play\"></span></a><a class=\"btn btn-default btn-warning hidden-xs\" title=\"扫码看视频\" onclick=\"$.fancybox.open('<div id=\\\'qrcode\\\'></div>');$('#qrcode').qrcode({text:'" + result.video[i].url + "'});\"><span class=\"fa fa-qrcode\"></span></a></span></p><p class=\"get-desc\">简介：" + result.video[i].desc + "</p></li>";
+                                    video_html += "<li class=\"list-group-item\"><p class=\"input-group\"><input type=\"text\" name=\"search\" id=\"video" + i + "\" class=\"form-control get-text\" value=\"" + result.video[i].url + "\"><span class=\"input-group-btn\"><a href=\"javascript:void(0);\" class=\"btn btn-info btnCopy\" data-clipboard-action=\"copy\" data-clipboard-target=\"#video" + i + "\" ><span class=\"glyphicon glyphicon-duplicate\"></span></a><a href=\"" + result.video[i].url + "\" class=\"btn btn-primary get-dowmload\" download=\""+result.video[i].desc+".mp4\" role=\"button\" title=\"下载\" ><span class=\"glyphicon glyphicon-save\"></span></a><a href=\"" + result.video[i].url + "\" class=\"btn btn-success\" role=\"button\" title=\"播放\"  data-toggle=\"lightbox\" data-title=\"\" data-type=\"video\" data-width=\"1024\"><span class=\"glyphicon glyphicon-play\"></span></a><a class=\"btn btn-default btn-warning hidden-xs\" title=\"扫码看视频\" onclick=\"$.fancybox.open('<div id=\\\'qrcode\\\'></div>');$('#qrcode').qrcode({text:'" + result.video[i].url + "'});\"><span class=\"fa fa-qrcode\"></span></a></span></p><p class=\"get-desc\">简介：" + result.video[i].desc + "</p></li>";
                                 });
                                 video_html += "</ul></div>";
                                 $("#video").html(video_html);
